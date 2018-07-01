@@ -1,0 +1,12 @@
+#! /bin/bash
+#PBS -l nodes=2:ppn=16
+#PBS -l walltime=00:20:00
+#PBS -N my_job
+#PBS -q gpu
+#PBS -l gres=ccm
+
+module load ccm
+
+module load tensorflow
+cd  tensorflow_experiments/ && \
+ccmrun python nn.py > run.log
